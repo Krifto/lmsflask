@@ -1,0 +1,29 @@
+<!doctype html>
+<title>LMS Player List</title>
+  <h1>Player List</h1>
+
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Mode</th>
+
+    <th>Volume</th>
+    <th>Control</th>
+      <th>Title</th>
+          <th>Time</th>
+  </tr>
+    {% for player in players %}
+  <tr>
+    <td>{{player.get_name()}}</td>
+    <td>{{player.get_mode()}}</td>
+    <td>{{player.get_volume()}} <a href="/{{player.get_name()}}/volume_up">+</a>/<a href="/{{player.get_name()}}/volume_down">-</a></td>
+    <td> <a href="/{{player.get_name()}}/play">play</a>|<a href="/{{player.get_name()}}/pause">pause</a>|<a href="/{{player.get_name()}}/stop">stop</a>
+    </td>
+
+    <td>{{player.get_track_title()}}</td>
+    <td>{{player.get_time_elapsed()}}</td>
+
+  </tr>
+    {% endfor %}
+</table>
